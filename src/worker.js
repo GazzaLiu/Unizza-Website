@@ -1,4 +1,5 @@
-// Serves /api/* only; every other path is handled by static assets (see wrangler.jsonc).
+// Handles /api/* and HTML pages; /assets/* is served straight from static assets (see wrangler.jsonc).
+import { applyContent, loadContent } from "./cms.js";
 
 const LIMITS = { name: 256, email: 256, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -100,8 +101,22 @@ async function handleContact(request, env) {
   return json(200, { ok: true });
 }
 
+// Serves a page from static assets and fills in Google Sheets content.
+async function servePage(request, env, ctx) {
+  const response = await env.ASSETS.fetch(request);
+  const type = response.headers.get("Content-Type") || "";
+  if (!type.startsWith("text/html")) return response; // redirects, non-HTML files
+  const content = await loadContent(env, ctx);
+  if (!content) return response;
+  const page = applyContent(response, content);
+  const headers = new Headers(page.headers);
+  headers.delete("ETag"); // body differs from the stored asset
+  headers.set("Cache-Control", "no-cache");
+  return new Response(page.body, { status: page.status, headers });
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const { pathname } = new URL(request.url);
     if (pathname === "/api/contact") {
       if (request.method !== "POST") {
@@ -109,6 +124,7 @@ export default {
       }
       return handleContact(request, env);
     }
-    return json(404, { error: "not_found" });
+    if (pathname.startsWith("/api/")) return json(404, { error: "not_found" });
+    return servePage(request, env, ctx);
   },
 };

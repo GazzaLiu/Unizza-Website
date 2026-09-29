@@ -1,0 +1,184 @@
+// Google Sheets content: fetch the sheet's published CSV, cache it, and apply it to HTML pages.
+//
+// Markers in public/*.html:
+//   data-cms="key"              element text (newlines become <br>)
+//   data-cms-href="key"         href   (https:, http:, mailto:, tel:, /path, #anchor)
+//   data-cms-src="key"          src    (https: or /path); srcset/sizes are dropped when replaced
+//   data-cms-content="key"      content attribute (meta tags)
+//   data-cms-value="key"        value attribute (submit button)
+//   data-cms-placeholder="key"  placeholder attribute
+//   data-cms-show="key"         element is removed when the key exists in the sheet with an empty value
+// Keys missing from the sheet leave the HTML default in place.
+
+const FRESH_MS = 5 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 3000;
+const RETRY_AFTER_FAILURE_MS = 60 * 1000; // keep pages fast while the sheet is unreachable
+const CACHE_KEY = "https://cms.unizza.internal/site-content";
+
+// Per-isolate copy; the Cache API below survives isolate restarts on custom domains.
+let memo = null; // { url: string, content: Map, fetchedAt: number }
+let lastFailure = null; // { url: string, at: number }
+
+// RFC 4180 CSV: quoted fields may contain commas, quotes ("") and newlines.
+export function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') {
+        field += '"';
+        i++;
+      } else if (c === '"') {
+        quoted = false;
+      } else {
+        field += c;
+      }
+    } else if (c === '"') {
+      quoted = true;
+    } else if (c === ",") {
+      row.push(field);
+      field = "";
+    } else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(field);
+      rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += c;
+    }
+  }
+  if (field || row.length) {
+    row.push(field);
+    rows.push(row);
+  }
+  return rows;
+}
+
+// Sheet layout: header row with "key" and "value" columns; any other columns are ignored.
+export function toContent(csv) {
+  const rows = parseCsv(csv.replace(/^﻿/, ""));
+  const header = (rows.shift() || []).map((h) => h.trim().toLowerCase());
+  const keyCol = header.indexOf("key");
+  const valueCol = header.indexOf("value");
+  if (keyCol < 0 || valueCol < 0) throw new Error("sheet needs 'key' and 'value' header columns");
+  const content = new Map();
+  for (const row of rows) {
+    const key = (row[keyCol] || "").trim();
+    if (!key || key.startsWith("#")) continue;
+    content.set(key, (row[valueCol] || "").replace(/\r\n?/g, "\n").trim());
+  }
+  return content;
+}
+
+async function fetchSheet(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS), redirect: "follow" });
+  if (!res.ok) throw new Error(`sheet fetch ${res.status}`);
+  const csv = await res.text();
+  // A sheet that is not published returns Google's HTML sign-in page instead of CSV.
+  if (/^\s*</.test(csv)) throw new Error("sheet returned HTML, not CSV (is it published to the web?)");
+  return csv;
+}
+
+// Returns the newest content we can get, or null (pages then show their HTML defaults).
+export async function loadContent(env, ctx) {
+  const url = env.SHEET_CSV_URL;
+  if (!url) return null;
+  const now = Date.now();
+  if (memo && memo.url === url && now - memo.fetchedAt < FRESH_MS) return memo.content;
+
+  const cache = caches.default;
+  const cacheKey = `${CACHE_KEY}?src=${encodeURIComponent(url)}`; // a new sheet URL never reuses the old copy
+  const cached = await cache.match(cacheKey);
+  if (cached) {
+    const fetchedAt = Number(cached.headers.get("x-fetched-at")) || 0;
+    if (now - fetchedAt < FRESH_MS) {
+      memo = { url, content: toContent(await cached.text()), fetchedAt };
+      return memo.content;
+    }
+  }
+
+  const stale = () => (memo && memo.url === url ? memo.content : null);
+  if (lastFailure && lastFailure.url === url && now - lastFailure.at < RETRY_AFTER_FAILURE_MS) {
+    return stale() || (cached ? toContent(await cached.text()) : null);
+  }
+
+  try {
+    const csv = await fetchSheet(url);
+    const content = toContent(csv); // validate before caching
+    memo = { url, content, fetchedAt: now };
+    lastFailure = null;
+    const stored = new Response(csv, {
+      headers: { "Content-Type": "text/csv; charset=utf-8", "Cache-Control": "max-age=604800", "x-fetched-at": String(now) },
+    });
+    ctx.waitUntil(cache.put(cacheKey, stored));
+    return content;
+  } catch (err) {
+    console.error("CMS: using stale content:", err.message);
+    lastFailure = { url, at: now };
+    if (stale()) return stale();
+    if (cached) return toContent(await cached.text());
+    return null;
+  }
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function safeLink(v) {
+  if (v === "" || v.startsWith("#")) return v || "#";
+  if (/^\/(?!\/)/.test(v)) return v;
+  if (/^(https?:|mailto:|tel:)/i.test(v)) return v;
+  return null;
+}
+
+function safeImage(v) {
+  if (/^\/(?!\/)/.test(v) || /^https:\/\//i.test(v)) return v;
+  return null;
+}
+
+function attrHandler(content, marker, attr, sanitize = (v) => v) {
+  return {
+    element(el) {
+      const key = el.getAttribute(marker);
+      if (!content.has(key)) return;
+      const value = sanitize(content.get(key));
+      if (value === null) {
+        console.warn(`CMS: rejected ${attr} for ${key}`);
+        return;
+      }
+      el.setAttribute(attr, value);
+      if (attr === "src") {
+        el.removeAttribute("srcset");
+        el.removeAttribute("sizes");
+      }
+    },
+  };
+}
+
+export function applyContent(response, content) {
+  return new HTMLRewriter()
+    .on("[data-cms-show]", {
+      element(el) {
+        const key = el.getAttribute("data-cms-show");
+        if (content.has(key) && content.get(key) === "") el.remove();
+      },
+    })
+    .on("[data-cms]", {
+      element(el) {
+        const key = el.getAttribute("data-cms");
+        if (!content.has(key)) return;
+        el.setInnerContent(escapeHtml(content.get(key)).replace(/\n/g, "<br>"), { html: true });
+      },
+    })
+    .on("[data-cms-href]", attrHandler(content, "data-cms-href", "href", safeLink))
+    .on("[data-cms-src]", attrHandler(content, "data-cms-src", "src", safeImage))
+    .on("[data-cms-content]", attrHandler(content, "data-cms-content", "content"))
+    .on("[data-cms-value]", attrHandler(content, "data-cms-value", "value"))
+    .on("[data-cms-placeholder]", attrHandler(content, "data-cms-placeholder", "placeholder"))
+    .transform(response);
+}
