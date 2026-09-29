@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "unizza-website",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./public",
+    "run_worker_first": ["/api/*"],
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // Stage 1: the *.workers.dev URL stays on until unizzagames.com is on Cloudflare DNS.
+  // Stage 2 (see docs/designs/cloudflare-launch.md §1): add the custom-domain routes below
+  // and set workers_dev / preview_urls to false.
+  "workers_dev": true,
+  "preview_urls": false,
+  // "routes": [
+  //   { "pattern": "www.unizzagames.com", "custom_domain": true },
+  //   { "pattern": "unizzagames.com", "custom_domain": true }
+  // ],
+  "vars": {
+    "CONTACT_TO": "gazzaliu@unizzagames.com",
+    "CONTACT_FROM": "Unizza 官網 <noreply@send.unizzagames.com>",
+    "ALLOWED_HOSTNAMES": "unizzagames.com,www.unizzagames.com"
+  }
+  // Secrets (wrangler secret put): TURNSTILE_SECRET, RESEND_API_KEY.
+  // DRY_RUN must never be set here; it belongs in .dev.vars only.
+}
