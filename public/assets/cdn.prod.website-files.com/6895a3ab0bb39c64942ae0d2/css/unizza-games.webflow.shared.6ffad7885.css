@@ -2250,7 +2250,7 @@ p {
 
 .hero-section.centered {
   text-align: center;
-  background-image: linear-gradient(#2e9dff80, #2e9dff38), url("https://cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae1a4_photo-1416359658663-73a3834895eb.jpg");
+  background-image: linear-gradient(#2e9dff80, #2e9dff38), url("/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae1a4_photo-1416359658663-73a3834895eb.jpg");
   background-position: 0 0, 50%;
   background-size: auto, cover;
   border-bottom: 4px solid #69b9ff;

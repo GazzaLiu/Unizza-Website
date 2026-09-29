@@ -1,0 +1,9 @@
+# Copy to .dev.vars for `wrangler dev`. .dev.vars is gitignored.
+# Cloudflare's published Turnstile test secret that always passes.
+# Swap for 2x0000000000000000000000000000000AA to test the always-fail path.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+# Empty: the test secret returns a dummy hostname, so skip the hostname check locally.
+ALLOWED_HOSTNAMES=
+# Log the email instead of calling Resend. Ignored on unizzagames.com hosts.
+DRY_RUN=1
+RESEND_API_KEY=
