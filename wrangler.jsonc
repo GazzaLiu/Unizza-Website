@@ -21,7 +21,7 @@
   "vars": {
     "CONTACT_TO": "gazzaliu@unizzagames.com",
     "CONTACT_FROM": "Unizza 官網 <noreply@send.unizzagames.com>",
-    "ALLOWED_HOSTNAMES": "unizzagames.com,www.unizzagames.com"
+    "ALLOWED_HOSTNAMES": "unizzagames.com,www.unizzagames.com,unizza-website.unizza-website.workers.dev"
   }
   // Secrets (wrangler secret put): TURNSTILE_SECRET, RESEND_API_KEY.
   // DRY_RUN must never be set here; it belongs in .dev.vars only.

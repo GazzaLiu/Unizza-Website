@@ -1,7 +1,7 @@
 // Contact form: Turnstile (explicit render) + POST /api/contact.
 (function () {
   // Turnstile site keys are public. The test key always passes and only works on localhost.
-  var PROD_SITEKEY = "REPLACE_WITH_TURNSTILE_SITEKEY";
+  var PROD_SITEKEY = "0x4AAAAAAFI0KOjfaHpUPx_S";
   var TEST_SITEKEY = "1x00000000000000000000AA";
   var isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   var SITEKEY = isLocal ? TEST_SITEKEY : PROD_SITEKEY;
