@@ -23,8 +23,9 @@
   "vars": {
     "CONTACT_TO": "gazzaliu@unizzagames.com",
     "CONTACT_FROM": "Unizza 官網 <noreply@send.unizzagames.com>",
-    "ALLOWED_HOSTNAMES": "unizzagames.com,www.unizzagames.com,unizza-website.unizza-website.workers.dev"
-    // SHEET_CSV_URL: the Google Sheet "Publish to web" CSV link. Unset = HTML defaults only.
+    "ALLOWED_HOSTNAMES": "unizzagames.com,www.unizzagames.com,unizza-website.unizza-website.workers.dev",
+    // Google Sheet "Publish to web" CSV link (see docs/content-editing.md). Remove to use HTML defaults only.
+    "SHEET_CSV_URL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQPJZSQf1DfKioajlEcRRuiCtHcbQ5Hj805JTDHBuPhq9nPQz3dWmEPTqBQOaybeOnXD7vuZ5E4H9j5/pub?gid=275883037&single=true&output=csv"
   }
   // Secrets (wrangler secret put): TURNSTILE_SECRET, RESEND_API_KEY.
   // DRY_RUN must never be set here; it belongs in .dev.vars only.
