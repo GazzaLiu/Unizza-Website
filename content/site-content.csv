@@ -1,0 +1,104 @@
+﻿key,value,note
+home.meta.title,Unizza Games,
+home.meta.description,Unizza Games,
+site.brand,Velocity,
+nav.home,Home,
+nav.contact,Contact,
+hero.title,"Uniqueness
+in Every Slice",
+hero.subtitle,"Grow your business, establish your brand, and put your customers first.",
+hero.button1.label,sign up,按鈕或連結文字（留空＝隱藏）
+hero.button1.link,#,連結網址：https://…、mailto:…、/contact 或 #
+hero.button2.label,Learn more,按鈕或連結文字（留空＝隱藏）
+hero.button2.link,#,連結網址：https://…、mailto:…、/contact 或 #
+services.title,what we do,
+services.text,"At Unizza Games, we specialize in connecting the global board game community with the best sourcing solutions in Asia. Whether you're looking to expand your game into new markets, localize it for different audiences, or transform it into an exciting digital experience, we’ve got you covered. With our deep expertise and passion for games, we ensure every project stands out from the rest.",
+services.1.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae178_feather-15-white.svg,圖示網址：https://… 或 /assets/…
+services.1.title,Licensing,標題（留空＝隱藏這一格）
+services.1.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+services.2.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae161_feather2-17-white.svg,圖示網址：https://… 或 /assets/…
+services.2.title,Distribution,標題（留空＝隱藏這一格）
+services.2.text,We help you bring your board games to a broader audience.,
+services.3.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae189_feather2-22-white.svg,圖示網址：https://… 或 /assets/…
+services.3.title,Localization,標題（留空＝隱藏這一格）
+services.3.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+services.4.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae178_feather-15-white.svg,圖示網址：https://… 或 /assets/…
+services.4.title,Consulting,標題（留空＝隱藏這一格）
+services.4.text,"Support for game IP licensing, business partnerships, and production.",
+services.5.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae161_feather2-17-white.svg,圖示網址：https://… 或 /assets/…
+services.5.title,Digital Adaptation,標題（留空＝隱藏這一格）
+services.5.text,Bringing board games to life in the digital realm — from Unity-based prototypes to online multiplayer experiences.,
+services.6.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae189_feather2-22-white.svg,圖示網址：https://… 或 /assets/…
+services.6.title,Manufactur,標題（留空＝隱藏這一格）
+services.6.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+featured.title,Our Most Popular services,
+featured.subtitle,This is some text inside of a div block.,
+featured.1.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae197_city-scape.jpg,圖片網址：https://… 或 /assets/…
+featured.1.title,Licensing & Distribution,標題（留空＝隱藏這一格）
+featured.1.text,"We help you bring your board games to a broader audience. With our licensing expertise, we ensure that your intellectual property is well-protected while reaching new territories and customers across Asia.",
+featured.1.button.label,Learn more,按鈕或連結文字（留空＝隱藏）
+featured.1.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
+featured.2.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae195_photo-1416400639808-f41f0c149b09.jpg,圖片網址：https://… 或 /assets/…
+featured.2.title,Marketing,標題（留空＝隱藏這一格）
+featured.2.text,"Expand your game's reach by making it resonate with players across cultures. Our localization team ensures that every detail—language, artwork, and design—feels natural to local audiences, making your game an instant hit in new markets.",
+featured.2.button.label,Learn more,按鈕或連結文字（留空＝隱藏）
+featured.2.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.title,Benchmark Portfolios,
+portfolio.subtitle,This is some text inside of a div block.,
+portfolio.1.tab,Muffin Time,分頁名稱（留空＝隱藏整個作品）
+portfolio.2.tab,Sky Team,分頁名稱（留空＝隱藏整個作品）
+portfolio.3.tab,King of Tokyo,分頁名稱（留空＝隱藏整個作品）
+portfolio.1.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae199_photo-1422222948315-28aadb7a2cb8.jpg,圖片網址：https://… 或 /assets/…
+portfolio.1.title,Muffin Time 吸爆鬆餅,
+portfolio.1.text,"Muffin Time is a chaotic card game with more twists and turns than you can shake a spork at! Battle your friends, family, and hyper-intelligent pets by drawing and playing from a deck of unique cards that'll either help you, thwart others, or mix things up for the sheer hell of it! To win the game, you just need to start your turn with exactly 10 cards in your hand but if you think that'll be easy, you're wrong (wronger than a duck wearing shoes- and that's pretty damn wrong).
+
+這款派對遊戲的美術是由Thomas Ridgewell操刀，也就是無厘頭到備受讚譽的「asdfmovie」作者，在原系列短片中那不可預期的隨機性，與懷疑作者該去看醫生的超展開都化作遊戲卡牌忠實呈現！遊戲的卡牌分為「藍色」行動卡、「綠色」反擊卡和「紅色」陷阱卡，卡上的能力都圍繞著拿取卡牌或令其他玩家棄掉手牌，玩家需要善用卡牌在一團混戰中取得剛好10張手牌來獲得最終勝利。",
+portfolio.2.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae184_5fcb0a55.jpg,圖片網址：https://… 或 /assets/…
+portfolio.2.title,Sky Team 天合小隊,
+portfolio.2.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+portfolio.3.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/68e492a1ac8bd8d0ffcfcc08_175437629521506.jpg,圖片網址：https://… 或 /assets/…
+portfolio.3.title,Heading,
+portfolio.3.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+cta.title,Grow Your Business.,
+cta.text,"Want to showcase your game across Asia?
+We turn great games into unforgettable regional hits.",
+cta.button.label,Let’s Work Together,按鈕或連結文字（留空＝隱藏）
+cta.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.about.title,About Unizza Games,
+footer.about.text,"Our name combines the prefix of unique “uni-” with “-zza” from pizza — a playful image of the  gaming world. The name also subtly reflects our Unity-based development origins. As we evolved to focus more on publishing, localization, and game licensing. Unizza Games became the perfect identity to capture our expanded vision.",
+footer.links.title,useful links,
+footer.links.1.label,Phasellus gravida semper nisi,按鈕或連結文字（留空＝隱藏）
+footer.links.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.2.label,Suspendisse nisl elit,按鈕或連結文字（留空＝隱藏）
+footer.links.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.3.label,Dellentesque habitant morbi,按鈕或連結文字（留空＝隱藏）
+footer.links.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.4.label,Etiam sollicitudin ipsum,按鈕或連結文字（留空＝隱藏）
+footer.links.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.social.title,Social Medias,
+footer.social.1.label,Twitter,按鈕或連結文字（留空＝隱藏）
+footer.social.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.social.2.label,Facebook,按鈕或連結文字（留空＝隱藏）
+footer.social.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.social.3.label,Pinterest,按鈕或連結文字（留空＝隱藏）
+footer.social.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.social.4.label,Google,按鈕或連結文字（留空＝隱藏）
+footer.social.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.social.5.label,Webflow,按鈕或連結文字（留空＝隱藏）
+footer.social.5.link,#,連結網址：https://…、mailto:…、/contact 或 #
+footer.copyright,Copyright Velocity Inc. Made in Webflow.,
+contact.meta.title,Contact,
+contact.meta.description,Contact Unizza Games,
+contact.title,Contact Us Today,
+contact.subtitle,"We’re always looking to connect with partners, developers, and players. Whether you’re interested in licensing, localization, or simply sharing ideas — reach out!",
+contact.info,"Taiwan, working across Asia and worldwide.
+info@unizzagames.com",
+contact.form.name,Enter your name...,
+contact.form.email,Enter your email...,
+contact.form.message,Message,
+contact.form.button,Send Carrier Pigeon,
+contact.form.success,Thank you! Your submission has been received!,

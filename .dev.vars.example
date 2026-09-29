@@ -7,3 +7,6 @@ ALLOWED_HOSTNAMES=
 # Log the email instead of calling Resend. Ignored on unizzagames.com hosts.
 DRY_RUN=1
 RESEND_API_KEY=
+# Optional: a Google Sheet "Publish to web" CSV link to test content locally. Unset = HTML defaults.
+# Must not also be set in wrangler.jsonc vars, or that value wins over this file.
+SHEET_CSV_URL=
