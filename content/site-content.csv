@@ -1,6 +1,6 @@
 ﻿key,value,note
 home.meta.title,Unizza Games,
-home.meta.description,"Unizza Games connects board games with players across Asia through licensing, localization and distribution.",
+home.meta.description,"Unizza Games connects board games with players across Asia through licensing, localization, distribution and video game adaptation.",
 site.logo,,Logo 圖片網址（留空＝只顯示文字品牌名）
 site.brand,Unizza Games,
 nav.home,Home,
@@ -35,6 +35,28 @@ services.5.text,Bringing board games to life in the digital realm — from Unity
 services.6.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae189_feather2-22-white.svg,圖示網址：https://… 或 /assets/…
 services.6.title,Manufactur,標題（留空＝隱藏這一格）
 services.6.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+videogames.title,Video Game Services,
+videogames.subtitle,"From tabletop to screen. We build the digital side of your board game — before, during and after launch.",
+videogames.1.tag,Board game + app,
+videogames.1.title,Companion App Development,
+videogames.1.text,"A companion app that makes your board game easier to learn and more fun to play. We design and build it around your rules and your art, so it feels like part of the box — not an add-on.",
+videogames.1.point.1,"Interactive rules, tutorials and setup guides",
+videogames.1.point.2,"Scoring, timers, narration and hidden-information helpers",
+videogames.1.point.3,"iOS, Android and web, with multi-language support",
+videogames.2.tag,Board game → video game,
+videogames.2.title,Video Game Adaptation,
+videogames.2.text,"We turn your board game into a full video game for PC, mobile or console — keeping the rules and feel your players love, and adding what only a screen can do.",
+videogames.2.point.1,Faithful rules engine and AI opponents,
+videogames.2.point.2,Online and local multiplayer,
+videogames.2.point.3,"Store launch on Steam, the App Store and Google Play",
+videogames.3.tag,Launch & crowdfunding,
+videogames.3.title,Early-Release Demo App,
+videogames.3.text,"A playable digital demo that lets players try your game before it’s printed. Use it to win backers on Kickstarter, run remote playtests, and show your game at conventions.",
+videogames.3.point.1,"A focused, playable build of your core gameplay",
+videogames.3.point.2,Built-in feedback and playtest analytics,
+videogames.3.point.3,"Ready for crowdfunding pages, press and events",
+videogames.button.label,Bring your game to screen,按鈕或連結文字（留空＝隱藏）
+videogames.button.link,/contact,連結網址：https://…、mailto:…、/contact 或 #
 featured.title,Our Most Popular services,
 featured.subtitle,This is some text inside of a div block.,
 featured.1.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae197_city-scape.jpg,圖片網址：https://… 或 /assets/…
@@ -198,6 +220,8 @@ contact.topic.2.title,Designer with a game to pitch?,聯絡頁分類標題（留
 contact.topic.2.text,"Send a short pitch: theme, player count, play time, and a link to your rules or prototype.",
 contact.topic.3.title,Retailer or distributor?,聯絡頁分類標題（留空＝隱藏這一段）
 contact.topic.3.text,Ask us about our current catalogue and wholesale terms.,
+contact.topic.4.title,Want your board game on screen?,聯絡頁分類標題（留空＝隱藏這一段）
+contact.topic.4.text,"Companion apps, full video game adaptations and early-release demos. Tell us about your game and where you want to take it.",
 contact.form.title,Get in touch,
 contact.form.intro,Not sure where you fit? Send us a message and we will get back to you.,
 contact.info,"Taiwan, working across Asia and worldwide.

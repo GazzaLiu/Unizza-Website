@@ -271,3 +271,26 @@ textarea.form-field { min-height: 160px; resize: vertical; }
 .full .portfolio-body p { display: block; -webkit-line-clamp: unset; overflow: visible; }
 /* Portfolio card titles are h2 on the Portfolios page and h3 on the home teaser; same look. */
 .portfolio-body h2 { font-size: 1.5rem; letter-spacing: 0.5px; margin-bottom: 0.5em; }
+
+/* ---------- Video game services: a dark "screen" section ---------- */
+.section.dark { background: var(--ink); }
+.section.dark .lead { color: #e6e6e6; }                          /* 10.8:1 */
+.vg-card {
+  display: flex; flex-direction: column; height: 100%;
+  background: #353a3f; border: 1px solid #454b51; border-radius: var(--radius);
+  padding: 28px; color: #d9dcdf;                                  /* 8.3:1 */
+}
+.vg-card h3 { color: #fff; }
+.vg-icon {
+  width: 60px; height: 60px; border-radius: 14px; margin-bottom: 18px;
+  display: grid; place-items: center; background: var(--yellow); color: var(--ink);
+}
+.vg-points { list-style: none; margin: 4px 0 0; padding: 16px 0 0; border-top: 1px solid #454b51; }
+.vg-points li { position: relative; padding-left: 28px; margin-bottom: 8px; }
+.vg-points li::before {
+  content: ""; position: absolute; left: 2px; top: 0.45em; width: 12px; height: 7px;
+  border-left: 2.5px solid var(--yellow); border-bottom: 2.5px solid var(--yellow); transform: rotate(-45deg);
+}
+/* On a dark section the heading is dark ink, so the ribbon must sit behind the whole line. */
+.section.dark .ribbon::before { top: 0; clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%); }
+.section.dark .ribbon { padding-top: 14px; }
