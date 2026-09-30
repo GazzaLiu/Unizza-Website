@@ -52,4 +52,5 @@
 | `data-cms-content="key"` | meta 的 `content` |
 | `data-cms-value="key"` | 按鈕的 `value` |
 | `data-cms-placeholder="key"` | 輸入框提示文字 |
+| `data-cms-alt="key"` | 圖片說明（alt） |
 | `data-cms-show="key"` | 該 key 存在且為空時移除整個元素 |

@@ -180,5 +180,6 @@ export function applyContent(response, content) {
     .on("[data-cms-content]", attrHandler(content, "data-cms-content", "content"))
     .on("[data-cms-value]", attrHandler(content, "data-cms-value", "value"))
     .on("[data-cms-placeholder]", attrHandler(content, "data-cms-placeholder", "placeholder"))
+    .on("[data-cms-alt]", attrHandler(content, "data-cms-alt", "alt"))
     .transform(response);
 }

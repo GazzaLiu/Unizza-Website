@@ -6,7 +6,7 @@ import path from "node:path";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
 const PAGES = ["index.html", "contact.html"]; // index first: shared keys (nav, footer) take its defaults
-const ATTRS = { href: "href", src: "src", content: "content", value: "value", placeholder: "placeholder" };
+const ATTRS = { href: "href", src: "src", content: "content", value: "value", placeholder: "placeholder", alt: "alt" };
 
 const NOTES = {
   label: "按鈕或連結文字（留空＝隱藏）",
@@ -14,6 +14,7 @@ const NOTES = {
   icon: "圖示網址：https://… 或 /assets/…",
   image: "圖片網址：https://… 或 /assets/…",
   tab: "分頁名稱（留空＝隱藏整個作品）",
+  alt: "圖片說明（給看不到圖片的人；純裝飾圖可留空）",
 };
 
 function decode(s) {
@@ -33,6 +34,7 @@ function textOf(inner) {
 
 function note(key) {
   const last = key.split(".").pop();
+  if (key.startsWith("contact.form.") && last === "label") return "表單欄位名稱（請勿留空）";
   if (NOTES[last]) return NOTES[last];
   if (key.endsWith(".title") && /^(services|featured)\.\d/.test(key)) return "標題（留空＝隱藏這一格）";
   if (key.startsWith("footer.") && key.endsWith(".label")) return "連結文字（留空＝隱藏）";
