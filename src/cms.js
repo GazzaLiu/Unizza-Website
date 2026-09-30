@@ -8,6 +8,7 @@
 //   data-cms-value="key"        value attribute (submit button)
 //   data-cms-placeholder="key"  placeholder attribute
 //   data-cms-alt="key"          image alt text (empty = decorative)
+//   data-cms-group="key"        data-group attribute (portfolio grouping, applied by portfolios.js)
 //   data-cms-show="key"         element is removed when the key exists in the sheet with an empty value
 //   data-cms-reveal="key"       element starts hidden; the hidden attribute is dropped once the key has a value
 // Keys missing from the sheet leave the HTML default in place.
@@ -173,7 +174,11 @@ export function applyContent(response, content) {
     .on("[data-cms-reveal]", {
       element(el) {
         const key = el.getAttribute("data-cms-reveal");
-        if (content.has(key) && content.get(key) !== "") el.removeAttribute("hidden");
+        if (!content.has(key) || content.get(key) === "") return;
+        // An image revealed by its own src key stays hidden when that value is not a usable image URL,
+        // otherwise a broken-image icon would appear (e.g. text typed into site.logo).
+        if (el.getAttribute("data-cms-src") === key && safeImage(content.get(key)) === null) return;
+        el.removeAttribute("hidden");
       },
     })
     .on("[data-cms]", {
@@ -189,5 +194,6 @@ export function applyContent(response, content) {
     .on("[data-cms-value]", attrHandler(content, "data-cms-value", "value"))
     .on("[data-cms-placeholder]", attrHandler(content, "data-cms-placeholder", "placeholder"))
     .on("[data-cms-alt]", attrHandler(content, "data-cms-alt", "alt"))
+    .on("[data-cms-group]", attrHandler(content, "data-cms-group", "data-group", (v) => v.trim()))
     .transform(response);
 }

@@ -294,3 +294,23 @@ textarea.form-field { min-height: 160px; resize: vertical; }
 /* On a dark section the heading is dark ink, so the ribbon must sit behind the whole line. */
 .section.dark .ribbon::before { top: 0; clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%); }
 .section.dark .ribbon { padding-top: 14px; }
+
+/* ---------- Portfolio groups: a pill-shaped title block per category ---------- */
+.portfolio-group + .portfolio-group { margin-top: 64px; }
+.group-title {
+  display: flex; align-items: center; gap: 18px;
+  width: fit-content; max-width: 100%; margin: 0 auto 32px;
+  background: var(--ink); color: #fff;
+  border-radius: 999px; padding: 10px 36px 10px 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.group-icon {
+  flex: none; width: 64px; height: 64px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--yellow); color: var(--ink);   /* 7.3:1 */
+}
+.group-title h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0; }
+.group-title p { margin: 2px 0 0; color: #e6e6e6; font-style: italic; line-height: 1.4; }   /* 10.8:1 */
+@media (max-width: 600px) {
+  .group-title { border-radius: 24px; padding: 12px 20px 12px 12px; gap: 14px; }
+  .group-icon { width: 52px; height: 52px; }
+}

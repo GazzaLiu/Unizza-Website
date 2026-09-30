@@ -20,7 +20,7 @@
   - `portfolio.N.tab`：隱藏整個作品（首頁與 Portfolios 頁同時隱藏）
   - 其他文字：顯示為空白
 - **填了才出現的位置**：以下位置預設隱藏，value 有填才會出現：
-  - `portfolio.4` 到 `portfolio.9`（填 `portfolio.N.tab`；首頁只顯示 1–3）
+  - `portfolio.1` 到 `portfolio.12`：`portfolio.N.tab` 有填才顯示（首頁只顯示 1–3）。4–12 預設是標示「Sample」的範例作品；試算表裡若有這些 key 的**空白列**，範例會被隱藏
   - `portfolio.N.category`（分類標籤）、`portfolio.N.link.label`（作品連結）
   - `about.team.1` 到 `about.team.4`（填 `about.team.N.name`；第 1 位有填才顯示整個團隊區塊）
   - `about.cta.3.label`（About 頁第三個按鈕）、`site.logo`（Logo 圖）、`contact.hero.image`（聯絡頁橫幅照片）
@@ -32,9 +32,25 @@
 |---|---|---|
 | 所有頁面共用 | | `site.*`、`nav.*`、`footer.*`、`cta.*`（首頁與 Portfolios 頁底部的行動區塊） |
 | Home | `/` | `home.*`、`hero.*`、`services.*`、`featured.*`、`portfolio.title`／`portfolio.subtitle` |
-| Portfolios | `/portfolios` | `portfolios.*`、`portfolio.1`–`portfolio.9` |
+| Portfolios | `/portfolios` | `portfolios.*`、`portfolio.1`–`portfolio.12` |
 | About | `/about` | `about.*` |
 | Contact | `/contact` | `contact.*` |
+
+## Portfolios 分組
+
+Portfolios 頁把作品分成 5 組，每組有一個標題區塊（`portfolios.group.N.title`／`.text`）：
+
+| 編號 | 預設標題 |
+|---|---|
+| 1 | Licensing |
+| 2 | Localization |
+| 3 | Distribution |
+| 4 | Video Game Adaptation |
+| 5 | Companion Apps & Demos |
+
+- 每個作品用 `portfolio.N.group` 填 1–5 指定分組；填其他值會放到最後一個沒有標題的區塊。
+- 沒有作品的分組會自動隱藏；把 `portfolios.group.N.title` 清空則連同該組作品一起隱藏。
+- 首頁的作品預覽（1–3）不分組。
 
 ## 允許的值
 
