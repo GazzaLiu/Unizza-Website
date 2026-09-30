@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found | Unizza Games</title>
-<meta name="description" content="This page does not exist.">
+<title data-cms="about.meta.title">About | Unizza Games</title>
+<meta name="description" content="Who we are and why we bring board games to players across Asia." data-cms-content="about.meta.description">
 <link rel="icon" href="/assets/cdn.prod.website-files.com/img/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
       <ul>
         <li><a href="/" data-cms="nav.home">Home</a></li>
         <li><a href="/portfolios" data-cms="nav.portfolios">Portfolios</a></li>
-        <li><a href="/about" data-cms="nav.about">About</a></li>
+        <li><a href="/about" aria-current="page" data-cms="nav.about">About</a></li>
         <li><a href="/contact" data-cms="nav.contact">Contact</a></li>
       </ul>
     </nav>
@@ -33,12 +33,67 @@
 <main id="main">
   <section class="page-hero compact">
     <div class="container">
-      <h1>Page not found</h1>
-      <p>The page you are looking for doesn't exist.</p>
+      <h1 data-cms="about.title">About Us</h1>
+      <p data-cms="about.subtitle">Taiwan-based, working across Asia and worldwide.</p>
     </div>
   </section>
+
   <section class="section">
-    <div class="container center-cta"><a class="btn" href="/">Back to home</a></div>
+    <div class="container">
+    <div class="ribbon"><h2 data-cms="about.story.title">Who We Are</h2></div>
+      <div class="prose"><p data-cms="about.story.text">At Unizza Games, we specialize in connecting the global board game community with the best sourcing solutions in Asia. Whether you're looking to expand your game into new markets, localize it for different audiences, or transform it into an exciting digital experience, we’ve got you covered. With our deep expertise and passion for games, we ensure every project stands out from the rest.</p></div>
+    </div>
+  </section>
+
+  <section class="section" data-cms-show="about.team.1.name" hidden data-cms-reveal="about.team.1.name">
+    <div class="container">
+    <div class="ribbon"><h2 data-cms="about.team.title">Our Team</h2></div>
+      <div class="team">
+        <div class="team-member" data-cms-show="about.team.1.name" hidden data-cms-reveal="about.team.1.name">
+          <img alt="" data-cms-alt="about.team.1.name" data-cms-src="about.team.1.photo" hidden data-cms-reveal="about.team.1.photo" loading="lazy" decoding="async">
+          <h3 data-cms="about.team.1.name"></h3>
+          <p class="team-role" data-cms="about.team.1.role"></p>
+          <p data-cms="about.team.1.bio"></p>
+        </div>
+        <div class="team-member" data-cms-show="about.team.2.name" hidden data-cms-reveal="about.team.2.name">
+          <img alt="" data-cms-alt="about.team.2.name" data-cms-src="about.team.2.photo" hidden data-cms-reveal="about.team.2.photo" loading="lazy" decoding="async">
+          <h3 data-cms="about.team.2.name"></h3>
+          <p class="team-role" data-cms="about.team.2.role"></p>
+          <p data-cms="about.team.2.bio"></p>
+        </div>
+        <div class="team-member" data-cms-show="about.team.3.name" hidden data-cms-reveal="about.team.3.name">
+          <img alt="" data-cms-alt="about.team.3.name" data-cms-src="about.team.3.photo" hidden data-cms-reveal="about.team.3.photo" loading="lazy" decoding="async">
+          <h3 data-cms="about.team.3.name"></h3>
+          <p class="team-role" data-cms="about.team.3.role"></p>
+          <p data-cms="about.team.3.bio"></p>
+        </div>
+        <div class="team-member" data-cms-show="about.team.4.name" hidden data-cms-reveal="about.team.4.name">
+          <img alt="" data-cms-alt="about.team.4.name" data-cms-src="about.team.4.photo" hidden data-cms-reveal="about.team.4.photo" loading="lazy" decoding="async">
+          <h3 data-cms="about.team.4.name"></h3>
+          <p class="team-role" data-cms="about.team.4.role"></p>
+          <p data-cms="about.team.4.bio"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="container">
+    <div class="ribbon"><h2 data-cms="about.mission.title">Our Mission</h2></div>
+      <div class="prose"><p data-cms="about.mission.text">Great games deserve players everywhere. We help publishers and designers bring their board games to Asia — and bring Asian games to the world — with care for every card, rulebook and box.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+    <div class="ribbon"><h2 data-cms="about.name.title">Why &quot;Unizza&quot;?</h2></div>
+      <div class="prose"><p data-cms="about.name.text">Our name combines the prefix of unique “uni-” with “-zza” from pizza — a playful image of the  gaming world. The name also subtly reflects our Unity-based development origins. As we evolved to focus more on publishing, localization, and game licensing. Unizza Games became the perfect identity to capture our expanded vision.</p></div>
+      <div class="btn-stack">
+        <a class="btn btn-block" href="/portfolios" data-cms="about.cta.1.label" data-cms-href="about.cta.1.link" data-cms-show="about.cta.1.label">Explore our portfolios</a>
+        <a class="btn btn-block" href="/contact" data-cms="about.cta.2.label" data-cms-href="about.cta.2.link" data-cms-show="about.cta.2.label">Work with us</a>
+        <a class="btn btn-block" href="#" data-cms="about.cta.3.label" data-cms-href="about.cta.3.link" data-cms-show="about.cta.3.label" hidden data-cms-reveal="about.cta.3.label"></a>
+      </div>
+    </div>
   </section>
 </main>
 <footer class="site-footer">

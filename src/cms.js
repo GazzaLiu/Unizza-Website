@@ -7,7 +7,9 @@
 //   data-cms-content="key"      content attribute (meta tags)
 //   data-cms-value="key"        value attribute (submit button)
 //   data-cms-placeholder="key"  placeholder attribute
+//   data-cms-alt="key"          image alt text (empty = decorative)
 //   data-cms-show="key"         element is removed when the key exists in the sheet with an empty value
+//   data-cms-reveal="key"       element starts hidden; the hidden attribute is dropped once the key has a value
 // Keys missing from the sheet leave the HTML default in place.
 
 const FRESH_MS = 5 * 60 * 1000;
@@ -166,6 +168,12 @@ export function applyContent(response, content) {
       element(el) {
         const key = el.getAttribute("data-cms-show");
         if (content.has(key) && content.get(key) === "") el.remove();
+      },
+    })
+    .on("[data-cms-reveal]", {
+      element(el) {
+        const key = el.getAttribute("data-cms-reveal");
+        if (content.has(key) && content.get(key) !== "") el.removeAttribute("hidden");
       },
     })
     .on("[data-cms]", {

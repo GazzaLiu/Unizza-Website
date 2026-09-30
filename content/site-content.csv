@@ -1,16 +1,20 @@
 ﻿key,value,note
 home.meta.title,Unizza Games,
-home.meta.description,Unizza Games,
-site.brand,Velocity,
+home.meta.description,"Unizza Games connects board games with players across Asia through licensing, localization and distribution.",
+site.logo,,Logo 圖片網址（留空＝只顯示文字品牌名）
+site.brand,Unizza Games,
 nav.home,Home,
+nav.portfolios,Portfolios,
+nav.about,About,
 nav.contact,Contact,
+hero.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae1a4_photo-1416359658663-73a3834895eb.jpg,圖片網址：https://… 或 /assets/…
 hero.title,"Uniqueness
 in Every Slice",
 hero.subtitle,"Grow your business, establish your brand, and put your customers first.",
-hero.button1.label,sign up,按鈕或連結文字（留空＝隱藏）
-hero.button1.link,#,連結網址：https://…、mailto:…、/contact 或 #
-hero.button2.label,Learn more,按鈕或連結文字（留空＝隱藏）
-hero.button2.link,#,連結網址：https://…、mailto:…、/contact 或 #
+hero.button1.label,Our Portfolios,按鈕或連結文字（留空＝隱藏）
+hero.button1.link,/portfolios,連結網址：https://…、mailto:…、/contact 或 #
+hero.button2.label,Contact Us,按鈕或連結文字（留空＝隱藏）
+hero.button2.link,/contact,連結網址：https://…、mailto:…、/contact 或 #
 services.title,what we do,
 services.text,"At Unizza Games, we specialize in connecting the global board game community with the best sourcing solutions in Asia. Whether you're looking to expand your game into new markets, localize it for different audiences, or transform it into an exciting digital experience, we’ve got you covered. With our deep expertise and passion for games, we ensure every project stands out from the rest.",
 services.1.icon,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae178_feather-15-white.svg,圖示網址：https://… 或 /assets/…
@@ -47,59 +51,155 @@ featured.2.button.label,Learn more,按鈕或連結文字（留空＝隱藏）
 featured.2.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
 portfolio.title,Benchmark Portfolios,
 portfolio.subtitle,This is some text inside of a div block.,
-portfolio.1.tab,Muffin Time,分頁名稱（留空＝隱藏整個作品）
-portfolio.2.tab,Sky Team,分頁名稱（留空＝隱藏整個作品）
-portfolio.3.tab,King of Tokyo,分頁名稱（留空＝隱藏整個作品）
 portfolio.1.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae199_photo-1422222948315-28aadb7a2cb8.jpg,圖片網址：https://… 或 /assets/…
 portfolio.1.alt,Muffin Time 吸爆鬆餅,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.1.category,,分類標籤，例如 Localization（留空＝不顯示）
 portfolio.1.title,Muffin Time 吸爆鬆餅,
 portfolio.1.text,"Muffin Time is a chaotic card game with more twists and turns than you can shake a spork at! Battle your friends, family, and hyper-intelligent pets by drawing and playing from a deck of unique cards that'll either help you, thwart others, or mix things up for the sheer hell of it! To win the game, you just need to start your turn with exactly 10 cards in your hand but if you think that'll be easy, you're wrong (wronger than a duck wearing shoes- and that's pretty damn wrong).
 
 這款派對遊戲的美術是由Thomas Ridgewell操刀，也就是無厘頭到備受讚譽的「asdfmovie」作者，在原系列短片中那不可預期的隨機性，與懷疑作者該去看醫生的超展開都化作遊戲卡牌忠實呈現！遊戲的卡牌分為「藍色」行動卡、「綠色」反擊卡和「紅色」陷阱卡，卡上的能力都圍繞著拿取卡牌或令其他玩家棄掉手牌，玩家需要善用卡牌在一團混戰中取得剛好10張手牌來獲得最終勝利。",
+portfolio.1.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
 portfolio.2.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae184_5fcb0a55.jpg,圖片網址：https://… 或 /assets/…
 portfolio.2.alt,Sky Team 天合小隊,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.2.category,,分類標籤，例如 Localization（留空＝不顯示）
 portfolio.2.title,Sky Team 天合小隊,
 portfolio.2.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
 Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
 Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+portfolio.2.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
 portfolio.3.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/68e492a1ac8bd8d0ffcfcc08_175437629521506.jpg,圖片網址：https://… 或 /assets/…
 portfolio.3.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.3.category,,分類標籤，例如 Localization（留空＝不顯示）
 portfolio.3.title,Heading,
 portfolio.3.text,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
 Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
 Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+portfolio.3.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
+home.portfolio.button.label,See all portfolios,按鈕或連結文字（留空＝隱藏）
+home.portfolio.button.link,/portfolios,連結網址：https://…、mailto:…、/contact 或 #
 cta.title,Grow Your Business.,
 cta.text,"Want to showcase your game across Asia?
 We turn great games into unforgettable regional hits.",
 cta.button.label,Let’s Work Together,按鈕或連結文字（留空＝隱藏）
-cta.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
+cta.button.link,/contact,連結網址：https://…、mailto:…、/contact 或 #
 footer.about.title,About Unizza Games,
 footer.about.text,"Our name combines the prefix of unique “uni-” with “-zza” from pizza — a playful image of the  gaming world. The name also subtly reflects our Unity-based development origins. As we evolved to focus more on publishing, localization, and game licensing. Unizza Games became the perfect identity to capture our expanded vision.",
-footer.links.title,useful links,
-footer.links.1.label,Phasellus gravida semper nisi,按鈕或連結文字（留空＝隱藏）
-footer.links.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.links.2.label,Suspendisse nisl elit,按鈕或連結文字（留空＝隱藏）
-footer.links.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.links.3.label,Dellentesque habitant morbi,按鈕或連結文字（留空＝隱藏）
-footer.links.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.links.4.label,Etiam sollicitudin ipsum,按鈕或連結文字（留空＝隱藏）
+footer.links.title,Links,
+footer.links.1.label,Portfolios,按鈕或連結文字（留空＝隱藏）
+footer.links.1.link,/portfolios,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.2.label,About,按鈕或連結文字（留空＝隱藏）
+footer.links.2.link,/about,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.3.label,Contact,按鈕或連結文字（留空＝隱藏）
+footer.links.3.link,/contact,連結網址：https://…、mailto:…、/contact 或 #
+footer.links.4.label,,按鈕或連結文字（留空＝隱藏）
 footer.links.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.social.title,Social Medias,
-footer.social.1.label,Twitter,按鈕或連結文字（留空＝隱藏）
+footer.social.title,Social,
 footer.social.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.social.2.label,Facebook,按鈕或連結文字（留空＝隱藏）
+footer.social.1.label,Twitter,按鈕或連結文字（留空＝隱藏）
 footer.social.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.social.3.label,Pinterest,按鈕或連結文字（留空＝隱藏）
+footer.social.2.label,Facebook,按鈕或連結文字（留空＝隱藏）
 footer.social.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.social.4.label,Google,按鈕或連結文字（留空＝隱藏）
+footer.social.3.label,Pinterest,按鈕或連結文字（留空＝隱藏）
 footer.social.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.social.5.label,Webflow,按鈕或連結文字（留空＝隱藏）
+footer.social.4.label,Google,按鈕或連結文字（留空＝隱藏）
 footer.social.5.link,#,連結網址：https://…、mailto:…、/contact 或 #
-footer.copyright,Copyright Velocity Inc. Made in Webflow.,
-contact.meta.title,Contact,
-contact.meta.description,Contact Unizza Games,
+footer.social.5.label,Webflow,按鈕或連結文字（留空＝隱藏）
+footer.copyright,© 2026 Unizza Games,
+portfolios.meta.title,Portfolios | Unizza Games,
+portfolios.meta.description,"Board games Unizza Games has licensed, localized and brought to players across Asia.",
+portfolios.title,Portfolios,
+portfolios.intro,Games we have brought to new players and new markets.,
+portfolio.4.image,,圖片網址：https://… 或 /assets/…
+portfolio.4.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.4.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.4.title,,
+portfolio.4.text,,
+portfolio.4.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.5.image,,圖片網址：https://… 或 /assets/…
+portfolio.5.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.5.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.5.title,,
+portfolio.5.text,,
+portfolio.5.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.5.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.6.image,,圖片網址：https://… 或 /assets/…
+portfolio.6.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.6.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.6.title,,
+portfolio.6.text,,
+portfolio.6.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.6.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.7.image,,圖片網址：https://… 或 /assets/…
+portfolio.7.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.7.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.7.title,,
+portfolio.7.text,,
+portfolio.7.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.7.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.8.image,,圖片網址：https://… 或 /assets/…
+portfolio.8.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.8.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.8.title,,
+portfolio.8.text,,
+portfolio.8.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.8.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.9.image,,圖片網址：https://… 或 /assets/…
+portfolio.9.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.9.category,,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.9.title,,
+portfolio.9.text,,
+portfolio.9.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.9.link,#,連結網址：https://…、mailto:…、/contact 或 #
+about.meta.title,About | Unizza Games,
+about.meta.description,Who we are and why we bring board games to players across Asia.,
+about.title,About Us,
+about.subtitle,"Taiwan-based, working across Asia and worldwide.",
+about.story.title,Who We Are,
+about.story.text,"At Unizza Games, we specialize in connecting the global board game community with the best sourcing solutions in Asia. Whether you're looking to expand your game into new markets, localize it for different audiences, or transform it into an exciting digital experience, we’ve got you covered. With our deep expertise and passion for games, we ensure every project stands out from the rest.",
+about.team.title,Our Team,
+about.team.1.photo,,成員照片網址：https://… 或 /assets/…
+about.team.1.name,,成員姓名；填了才會顯示這位成員（第 1 位有填才顯示整個團隊區塊）
+about.team.1.role,,
+about.team.1.bio,,
+about.team.2.photo,,成員照片網址：https://… 或 /assets/…
+about.team.2.name,,成員姓名；填了才會顯示這位成員（第 1 位有填才顯示整個團隊區塊）
+about.team.2.role,,
+about.team.2.bio,,
+about.team.3.photo,,成員照片網址：https://… 或 /assets/…
+about.team.3.name,,成員姓名；填了才會顯示這位成員（第 1 位有填才顯示整個團隊區塊）
+about.team.3.role,,
+about.team.3.bio,,
+about.team.4.photo,,成員照片網址：https://… 或 /assets/…
+about.team.4.name,,成員姓名；填了才會顯示這位成員（第 1 位有填才顯示整個團隊區塊）
+about.team.4.role,,
+about.team.4.bio,,
+about.mission.title,Our Mission,
+about.mission.text,"Great games deserve players everywhere. We help publishers and designers bring their board games to Asia — and bring Asian games to the world — with care for every card, rulebook and box.",
+about.name.title,"Why ""Unizza""?",
+about.name.text,"Our name combines the prefix of unique “uni-” with “-zza” from pizza — a playful image of the  gaming world. The name also subtly reflects our Unity-based development origins. As we evolved to focus more on publishing, localization, and game licensing. Unizza Games became the perfect identity to capture our expanded vision.",
+about.cta.1.label,Explore our portfolios,按鈕或連結文字（留空＝隱藏）
+about.cta.1.link,/portfolios,連結網址：https://…、mailto:…、/contact 或 #
+about.cta.2.label,Work with us,按鈕或連結文字（留空＝隱藏）
+about.cta.2.link,/contact,連結網址：https://…、mailto:…、/contact 或 #
+about.cta.3.label,,按鈕或連結文字（留空＝隱藏）
+about.cta.3.link,#,連結網址：https://…、mailto:…、/contact 或 #
+contact.meta.title,Contact | Unizza Games,
+contact.meta.description,"Get in touch with Unizza Games about licensing, localization and distribution in Asia.",
+contact.hero.image,,聯絡頁橫幅照片網址（留空＝使用紅色圖樣）
 contact.title,Contact Us Today,
 contact.subtitle,"We’re always looking to connect with partners, developers, and players. Whether you’re interested in licensing, localization, or simply sharing ideas — reach out!",
+contact.topic.1.title,Publisher bringing a game to Asia?,聯絡頁分類標題（留空＝隱藏這一段）
+contact.topic.1.text,"We handle licensing, localization and distribution across Asian markets. Tell us about your game and the regions you have in mind.",
+contact.topic.2.title,Designer with a game to pitch?,聯絡頁分類標題（留空＝隱藏這一段）
+contact.topic.2.text,"Send a short pitch: theme, player count, play time, and a link to your rules or prototype.",
+contact.topic.3.title,Retailer or distributor?,聯絡頁分類標題（留空＝隱藏這一段）
+contact.topic.3.text,Ask us about our current catalogue and wholesale terms.,
+contact.form.title,Get in touch,
+contact.form.intro,Not sure where you fit? Send us a message and we will get back to you.,
 contact.info,"Taiwan, working across Asia and worldwide.
 info@unizzagames.com",
 contact.form.name.label,Name,表單欄位名稱（請勿留空）
@@ -110,3 +210,12 @@ contact.form.message.label,Message,表單欄位名稱（請勿留空）
 contact.form.message,Message,
 contact.form.button,Send Carrier Pigeon,
 contact.form.success,Thank you! Your submission has been received!,
+portfolio.1.tab,Muffin Time,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.2.tab,Sky Team,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.3.tab,King of Tokyo,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.4.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.5.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.6.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.7.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.8.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.9.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
