@@ -10,7 +10,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const layout = fs.readFileSync(path.join(root, "pages", "_layout.html"), "utf8");
 const D = JSON.parse(fs.readFileSync(path.join(root, "pages", "defaults.json"), "utf8"));
 
-const PORTFOLIO_SLOTS = 9;
+const PORTFOLIO_SLOTS = 12;
+const PORTFOLIO_GROUPS = 5; // portfolio.N.group picks one of portfolios.group.1-5
 const TEAM_SLOTS = 4;
 const SOCIALS = [
   ["6895a3ab0bb39c64942ae19a_social-18.svg"],
@@ -26,6 +27,14 @@ const VG_ICONS = [
   svg('<rect x="6" y="2" width="12" height="20" rx="2"/><rect x="9" y="7" width="6" height="6" rx="1"/><path d="M11 18h2"/>'),
   svg('<rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="0.6" fill="currentColor"/><circle cx="18" cy="13.5" r="0.6" fill="currentColor"/>'),
   svg('<circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/>'),
+];
+// Portfolio group icons: licensing, localization, distribution, video game, companion app.
+const GROUP_ICONS = [
+  svg('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="12" cy="14.5" r="2.5"/><path d="M10.6 16.6 9.8 20l2.2-1 2.2 1-.8-3.4"/>'),
+  svg('<path d="M4 5h8M8 3v2M10 5c0 4-3 7-6 8M6 9c1 2 3 3.5 5 4"/><path d="m13 21 4-9 4 9M14.5 18h5"/>'),
+  svg('<path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>'),
+  VG_ICONS[1],
+  VG_ICONS[0],
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -58,7 +67,7 @@ const socialLinks = SOCIALS.map(([icon], n) => {
   return `        <li data-cms-show="footer.social.${i}.label"${reveal(`footer.social.${i}.label`)}><a class="social-link" href="${a(`footer.social.${i}.link`)}" data-cms-href="footer.social.${i}.link"><img src="${ICONS}${icon}" alt="" width="18" height="18"><span data-cms="footer.social.${i}.label">${t(`footer.social.${i}.label`)}</span></a></li>`;
 }).join("\n");
 
-const portfolioCard = (i, heading = "h3") => `      <article class="portfolio-card" data-cms-show="portfolio.${i}.tab"${reveal(`portfolio.${i}.tab`)}>
+const portfolioCard = (i, heading = "h3") => `      <article class="portfolio-card" data-group="${a(`portfolio.${i}.group`)}" data-cms-group="portfolio.${i}.group" data-cms-show="portfolio.${i}.tab"${reveal(`portfolio.${i}.tab`)}>
         ${img(`portfolio.${i}.image`, `portfolio.${i}.alt`)}
         <div class="portfolio-body">
           <span class="chip" data-cms="portfolio.${i}.category" data-cms-show="portfolio.${i}.category"${reveal(`portfolio.${i}.category`)}>${t(`portfolio.${i}.category`)}</span>
@@ -69,6 +78,34 @@ const portfolioCard = (i, heading = "h3") => `      <article class="portfolio-ca
       </article>`;
 const portfolioGrid = (from, to, cls = "", heading = "h3") =>
   `    <div class="grid grid-3 ${cls}">\n${Array.from({ length: to - from + 1 }, (_, n) => portfolioCard(from + n, heading)).join("\n")}\n    </div>`;
+
+// Portfolios page: one titled block per group; each card starts in its default group.
+// portfolios.js moves a card when the sheet assigns it to another group, and hides empty groups.
+const slots = () => Array.from({ length: PORTFOLIO_SLOTS }, (_, n) => n + 1);
+const groupOf = (i) => d(`portfolio.${i}.group`).trim();
+const portfolioGroups = () => {
+  const groups = Array.from({ length: PORTFOLIO_GROUPS }, (_, n) => n + 1).map((g) => `    <section class="portfolio-group" data-group-id="${g}" data-cms-show="portfolios.group.${g}.title" aria-labelledby="group-${g}-title">
+      <div class="group-title">
+        <span class="group-icon" aria-hidden="true">${GROUP_ICONS[g - 1]}</span>
+        <div>
+          ${text("h2", `portfolios.group.${g}.title`, ` id="group-${g}-title"`)}
+          ${text("p", `portfolios.group.${g}.text`)}
+        </div>
+      </div>
+      <div class="grid grid-3 full">
+${slots().filter((i) => groupOf(i) === String(g)).map((i) => portfolioCard(i)).join("\n")}
+      </div>
+    </section>`);
+  // Cards whose default group is not 1-N; also the landing spot for unknown groups set in the sheet.
+  const valid = new Set(Array.from({ length: PORTFOLIO_GROUPS }, (_, n) => String(n + 1)));
+  const ungrouped = slots().filter((i) => !valid.has(groupOf(i)));
+  const other = `    <section class="portfolio-group" data-group-id="other"${ungrouped.length ? "" : " hidden"}>
+      <div class="grid grid-3 full">
+${ungrouped.map((i) => portfolioCard(i)).join("\n")}
+      </div>
+    </section>`;
+  return [...groups, other].join("\n\n");
+};
 
 const ribbon = (tag, key) => `    <div class="ribbon">${text(tag, key)}</div>`;
 const lead = (key) => `    ${text("p", key, ' class="lead"')}`;
@@ -159,6 +196,7 @@ ${ctaBand}`,
 
   portfolios: {
     metaKey: "portfolios", current: "portfolios",
+    scripts: '<script src="/assets/portfolios.js" defer></script>',
     body: `  <section class="page-hero compact">
     <div class="container">
       ${text("h1", "portfolios.title")}
@@ -168,7 +206,7 @@ ${ctaBand}`,
 
   <section class="section">
     <div class="container">
-${portfolioGrid(1, PORTFOLIO_SLOTS, "full", "h2")}
+${portfolioGroups()}
     </div>
   </section>
 

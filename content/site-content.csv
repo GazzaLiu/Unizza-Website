@@ -73,6 +73,7 @@ featured.2.button.label,Learn more,按鈕或連結文字（留空＝隱藏）
 featured.2.button.link,#,連結網址：https://…、mailto:…、/contact 或 #
 portfolio.title,Benchmark Portfolios,
 portfolio.subtitle,This is some text inside of a div block.,
+portfolio.1.group,2,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
 portfolio.1.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae199_photo-1422222948315-28aadb7a2cb8.jpg,圖片網址：https://… 或 /assets/…
 portfolio.1.alt,Muffin Time 吸爆鬆餅,圖片說明（給看不到圖片的人；純裝飾圖可留空）
 portfolio.1.category,,分類標籤，例如 Localization（留空＝不顯示）
@@ -82,6 +83,7 @@ portfolio.1.text,"Muffin Time is a chaotic card game with more twists and turns 
 這款派對遊戲的美術是由Thomas Ridgewell操刀，也就是無厘頭到備受讚譽的「asdfmovie」作者，在原系列短片中那不可預期的隨機性，與懷疑作者該去看醫生的超展開都化作遊戲卡牌忠實呈現！遊戲的卡牌分為「藍色」行動卡、「綠色」反擊卡和「紅色」陷阱卡，卡上的能力都圍繞著拿取卡牌或令其他玩家棄掉手牌，玩家需要善用卡牌在一團混戰中取得剛好10張手牌來獲得最終勝利。",
 portfolio.1.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.1.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.2.group,1,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
 portfolio.2.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/6895a3ab0bb39c64942ae184_5fcb0a55.jpg,圖片網址：https://… 或 /assets/…
 portfolio.2.alt,Sky Team 天合小隊,圖片說明（給看不到圖片的人；純裝飾圖可留空）
 portfolio.2.category,,分類標籤，例如 Localization（留空＝不顯示）
@@ -91,6 +93,7 @@ Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam 
 Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
 portfolio.2.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.2.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolio.3.group,3,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
 portfolio.3.image,/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/68e492a1ac8bd8d0ffcfcc08_175437629521506.jpg,圖片網址：https://… 或 /assets/…
 portfolio.3.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
 portfolio.3.category,,分類標籤，例如 Localization（留空＝不顯示）
@@ -134,46 +137,86 @@ portfolios.meta.title,Portfolios | Unizza Games,
 portfolios.meta.description,"Board games Unizza Games has licensed, localized and brought to players across Asia.",
 portfolios.title,Portfolios,
 portfolios.intro,Games we have brought to new players and new markets.,
-portfolio.4.image,,圖片網址：https://… 或 /assets/…
-portfolio.4.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.4.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.4.title,,
-portfolio.4.text,,
+portfolios.group.1.title,Licensing,分組標題（留空＝隱藏整組與其中的作品）
+portfolios.group.1.text,Games we have licensed for new markets.,
+portfolio.10.group,1,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.10.image,/assets/portfolio/sample-10.svg,圖片網址：https://… 或 /assets/…
+portfolio.10.alt,Sample cover art for Mochi Mayhem,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.10.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.10.title,Mochi Mayhem,
+portfolio.10.text,"A party card game licensed for Taiwan, Hong Kong and Japan, with local marketing and launch events.",
+portfolio.10.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.10.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolios.group.2.title,Localization,分組標題（留空＝隱藏整組與其中的作品）
+portfolios.group.2.text,Translated and culturally adapted for players in Asia.,
+portfolio.11.group,2,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.11.image,/assets/portfolio/sample-11.svg,圖片網址：https://… 或 /assets/…
+portfolio.11.alt,Sample cover art for Rune Garden,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.11.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.11.title,Rune Garden 中文版,
+portfolio.11.text,"Traditional Chinese edition: translated rulebook, cards and box, with iconography reviewed for players in Asia.",
+portfolio.11.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.11.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolios.group.3.title,Distribution,分組標題（留空＝隱藏整組與其中的作品）
+portfolios.group.3.text,"Brought to shelves, cafés and players across Asia.",
+portfolio.12.group,3,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.12.image,/assets/portfolio/sample-12.svg,圖片網址：https://… 或 /assets/…
+portfolio.12.alt,Sample cover art for Starfall Couriers,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.12.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.12.title,Starfall Couriers,
+portfolio.12.text,A pick-up-and-deliver family game distributed to board game cafés and retailers across Southeast Asia.,
+portfolio.12.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
+portfolio.12.link,#,連結網址：https://…、mailto:…、/contact 或 #
+portfolios.group.4.title,Video Game Adaptation,分組標題（留空＝隱藏整組與其中的作品）
+portfolios.group.4.text,"Board games rebuilt for PC, mobile and console.",
+portfolio.4.group,4,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.4.image,/assets/portfolio/sample-4.svg,圖片網址：https://… 或 /assets/…
+portfolio.4.alt,Sample cover art for Pizza Tower Defense,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.4.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.4.title,Pizza Tower Defense,
+portfolio.4.text,"A tile-laying pizza shop board game rebuilt as a mobile tower-defense game, with daily puzzles and online versus play.",
 portfolio.4.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.4.link,#,連結網址：https://…、mailto:…、/contact 或 #
-portfolio.5.image,,圖片網址：https://… 或 /assets/…
-portfolio.5.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.5.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.5.title,,
-portfolio.5.text,,
+portfolio.5.group,4,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.5.image,/assets/portfolio/sample-5.svg,圖片網址：https://… 或 /assets/…
+portfolio.5.alt,Sample cover art for Dragon Market Online,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.5.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.5.title,Dragon Market Online,
+portfolio.5.text,"A 2–5 player trading game adapted for PC, with asynchronous turns, AI merchants and cross-play with mobile.",
 portfolio.5.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.5.link,#,連結網址：https://…、mailto:…、/contact 或 #
-portfolio.6.image,,圖片網址：https://… 或 /assets/…
-portfolio.6.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.6.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.6.title,,
-portfolio.6.text,,
+portfolio.6.group,4,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.6.image,/assets/portfolio/sample-6.svg,圖片網址：https://… 或 /assets/…
+portfolio.6.alt,Sample cover art for Tiny Kingdoms Digital,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.6.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.6.title,Tiny Kingdoms Digital,
+portfolio.6.text,"An area-control board game brought to Switch and Steam, with a campaign that teaches the rules one mechanic at a time.",
 portfolio.6.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.6.link,#,連結網址：https://…、mailto:…、/contact 或 #
-portfolio.7.image,,圖片網址：https://… 或 /assets/…
-portfolio.7.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.7.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.7.title,,
-portfolio.7.text,,
+portfolios.group.5.title,Companion Apps & Demos,分組標題（留空＝隱藏整組與其中的作品）
+portfolios.group.5.text,"Apps that teach, score and showcase the game.",
+portfolio.7.group,5,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.7.image,/assets/portfolio/sample-7.svg,圖片網址：https://… 或 /assets/…
+portfolio.7.alt,Sample cover art for Night Train Companion,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.7.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.7.title,Night Train Companion,
+portfolio.7.text,"Companion app for a hidden-role mystery game: it narrates each night, tracks secret roles and times the discussion rounds.",
 portfolio.7.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.7.link,#,連結網址：https://…、mailto:…、/contact 或 #
-portfolio.8.image,,圖片網址：https://… 或 /assets/…
-portfolio.8.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.8.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.8.title,,
-portfolio.8.text,,
+portfolio.8.group,5,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.8.image,/assets/portfolio/sample-8.svg,圖片網址：https://… 或 /assets/…
+portfolio.8.alt,Sample cover art for Harbor Masters Demo,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.8.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.8.title,Harbor Masters Demo,
+portfolio.8.text,"A playable crowdfunding demo covering the first three rounds, so backers could try the game before it was printed.",
 portfolio.8.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.8.link,#,連結網址：https://…、mailto:…、/contact 或 #
-portfolio.9.image,,圖片網址：https://… 或 /assets/…
-portfolio.9.alt,,圖片說明（給看不到圖片的人；純裝飾圖可留空）
-portfolio.9.category,,分類標籤，例如 Localization（留空＝不顯示）
-portfolio.9.title,,
-portfolio.9.text,,
+portfolio.9.group,5,分組編號：1 Licensing、2 Localization、3 Distribution、4 Video Game Adaptation、5 Companion Apps & Demos
+portfolio.9.image,/assets/portfolio/sample-9.svg,圖片網址：https://… 或 /assets/…
+portfolio.9.alt,Sample cover art for Lantern Quest Companion,圖片說明（給看不到圖片的人；純裝飾圖可留空）
+portfolio.9.category,Sample,分類標籤，例如 Localization（留空＝不顯示）
+portfolio.9.title,Lantern Quest Companion,
+portfolio.9.text,"Campaign app for a cooperative adventure game: branching story, saved progress between sessions, narration in four languages.",
 portfolio.9.link.label,,作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）
 portfolio.9.link,#,連結網址：https://…、mailto:…、/contact 或 #
 about.meta.title,About | Unizza Games,
@@ -237,9 +280,12 @@ contact.form.success,Thank you! Your submission has been received!,
 portfolio.1.tab,Muffin Time,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
 portfolio.2.tab,Sky Team,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
 portfolio.3.tab,King of Tokyo,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.4.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.5.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.6.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.7.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.8.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
-portfolio.9.tab,,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.10.tab,Mochi Mayhem,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.11.tab,Rune Garden,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.12.tab,Starfall Couriers,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.4.tab,Pizza Tower Defense,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.5.tab,Dragon Market Online,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.6.tab,Tiny Kingdoms Digital,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.7.tab,Night Train Companion,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.8.tab,Harbor Masters Demo,作品短名稱；填了才會顯示這個作品（留空＝隱藏）
+portfolio.9.tab,Lantern Quest Companion,作品短名稱；填了才會顯示這個作品（留空＝隱藏）

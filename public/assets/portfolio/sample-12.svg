@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Starfall Couriers (sample cover)">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g opacity="0.12" fill="#fff"><circle cx="0" cy="0" r="18"/><circle cx="137" cy="211" r="32"/><circle cx="274" cy="422" r="46"/><circle cx="411" cy="33" r="60"/><circle cx="548" cy="244" r="18"/><circle cx="685" cy="455" r="32"/><circle cx="22" cy="66" r="46"/><circle cx="159" cy="277" r="60"/><circle cx="296" cy="488" r="18"/><circle cx="433" cy="99" r="32"/><circle cx="570" cy="310" r="46"/><circle cx="707" cy="521" r="60"/><circle cx="44" cy="132" r="18"/><circle cx="181" cy="343" r="32"/></g>
+  
+  <g transform="translate(400 300)">
+    <path d="M-190 -120 L130 -150 L200 -100 L-120 -70 Z" fill="#dbeafe"/>
+    <path d="M-120 -70 L200 -100 L200 150 L-120 190 Z" fill="#f2b33d"/>
+    <path d="M-190 -120 L-120 -70 L-120 190 L-190 140 Z" fill="#172554"/>
+    <text x="40" y="60" text-anchor="middle" font-family="'Barlow Condensed','Arial Narrow','Impact','Arial Black',sans-serif" font-weight="700" font-size="52" fill="#172554" transform="skewY(-5)">STARFALL</text>
+    
+    <g transform="translate(-260 150) rotate(-14)"><rect x="-34" y="-34" width="68" height="68" rx="12" fill="#fff"/><circle cx="-14" cy="-14" r="7" fill="#172554"/><circle cx="14" cy="14" r="7" fill="#172554"/><circle r="7" fill="#172554"/></g>
+    <g transform="translate(270 -170) rotate(18)"><rect x="-26" y="-26" width="52" height="52" rx="10" fill="#fff"/><circle cx="-10" cy="-10" r="6" fill="#172554"/><circle cx="10" cy="10" r="6" fill="#172554"/></g>
+  </g>
+  <rect x="0" y="512" width="800" height="88" fill="#172554" opacity="0.88"/>
+  <text x="400" y="572" text-anchor="middle" font-family="'Barlow Condensed','Arial Narrow','Impact','Arial Black',sans-serif" font-weight="700" font-size="46" letter-spacing="2" fill="#fff">STARFALL COURIERS</text>
+  <g transform="translate(24 24)"><rect width="118" height="38" rx="19" fill="#fff"/><text x="59" y="26" text-anchor="middle" font-family="'Barlow Condensed','Arial Narrow','Impact','Arial Black',sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#172554">SAMPLE</text></g>
+</svg>
