@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-cms="{{metaKey}}.meta.title">{{title}}</title>
+<meta name="description" content="{{description}}" data-cms-content="{{metaKey}}.meta.description">
+<link rel="icon" href="/assets/cdn.prod.website-files.com/img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="/assets/site.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <img data-cms-src="site.logo" data-cms-reveal="site.logo" alt="" hidden>
+      <span class="brand-name" data-cms="site.brand">Unizza Games</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/"{{current:home}} data-cms="nav.home">Home</a></li>
+        <li><a href="/portfolios"{{current:portfolios}} data-cms="nav.portfolios">Portfolios</a></li>
+        <li><a href="/about"{{current:about}} data-cms="nav.about">About</a></li>
+        <li><a href="/contact"{{current:contact}} data-cms="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{body}}
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-heading" data-cms="footer.about.title">{{t:footer.about.title}}</h2>
+      <p data-cms="footer.about.text">{{t:footer.about.text}}</p>
+    </div>
+    <div>
+      <h2 class="footer-heading" data-cms="footer.links.title">{{t:footer.links.title}}</h2>
+      <ul class="footer-links">
+{{footerLinks}}
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-heading" data-cms="footer.social.title">{{t:footer.social.title}}</h2>
+      <ul class="footer-links">
+{{socialLinks}}
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" data-cms="footer.copyright">{{t:footer.copyright}}</div>
+  </div>
+</footer>
+<script src="/assets/site.js" defer></script>
+{{scripts}}
+</body>
+</html>

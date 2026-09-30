@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
-const PAGES = ["index.html", "contact.html"]; // index first: shared keys (nav, footer) take its defaults
+const PAGES = ["index.html", "portfolios.html", "about.html", "contact.html"]; // index first: shared keys (nav, footer) take its defaults
 const ATTRS = { href: "href", src: "src", content: "content", value: "value", placeholder: "placeholder", alt: "alt" };
 
 const NOTES = {
@@ -35,6 +35,14 @@ function textOf(inner) {
 function note(key) {
   const last = key.split(".").pop();
   if (key.startsWith("contact.form.") && last === "label") return "表單欄位名稱（請勿留空）";
+  if (/^portfolio\.\d\.tab$/.test(key)) return "作品短名稱；填了才會顯示這個作品（留空＝隱藏）";
+  if (/^portfolio\.\d\.category$/.test(key)) return "分類標籤，例如 Localization（留空＝不顯示）";
+  if (/^portfolio\.\d\.link\.label$/.test(key)) return "作品連結文字，例如 View on BoardGameGeek（留空＝不顯示）";
+  if (/^about\.team\.\d\.name$/.test(key)) return "成員姓名；填了才會顯示這位成員（第 1 位有填才顯示整個團隊區塊）";
+  if (/^about\.team\.\d\.photo$/.test(key)) return "成員照片網址：https://… 或 /assets/…";
+  if (/^contact\.topic\.\d\.title$/.test(key)) return "聯絡頁分類標題（留空＝隱藏這一段）";
+  if (/\.image$/.test(key) && key.startsWith("contact.hero")) return "聯絡頁橫幅照片網址（留空＝使用紅色圖樣）";
+  if (key === "site.logo") return "Logo 圖片網址（留空＝只顯示文字品牌名）";
   if (NOTES[last]) return NOTES[last];
   if (key.endsWith(".title") && /^(services|featured)\.\d/.test(key)) return "標題（留空＝隱藏這一格）";
   if (key.startsWith("footer.") && key.endsWith(".label")) return "連結文字（留空＝隱藏）";
@@ -60,6 +68,17 @@ for (const page of PAGES) {
       const val = new RegExp(`(?:^|\\s)${attr}="([^"]*)"`).exec(attrs);
       rows.set(key[1], decode(val ? val[1] : ""));
     }
+  }
+}
+
+// Keys used only as show/hide switches (data-cms-show / data-cms-reveal) have no text on the page;
+// take their starting value from pages/defaults.json so editors still get a row for them.
+const defaultsPath = path.join(root, "pages", "defaults.json");
+const defaults = fs.existsSync(defaultsPath) ? JSON.parse(fs.readFileSync(defaultsPath, "utf8")) : {};
+for (const page of PAGES) {
+  const html = fs.readFileSync(path.join(root, "public", page), "utf8");
+  for (const [, key] of html.matchAll(/\bdata-cms-(?:show|reveal)="([^"]+)"/g)) {
+    if (!rows.has(key)) rows.set(key, defaults[key] ?? "");
   }
 }
 
