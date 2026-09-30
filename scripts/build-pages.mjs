@@ -20,6 +20,13 @@ const SOCIALS = [
   ["6895a3ab0bb39c64942ae16f_social-12.svg"],
 ];
 const ICONS = "/assets/cdn.prod.website-files.com/6895a3ab0bb39c64942ae0d2/";
+// Video game service icons (24px line icons): companion app, video game, demo launch.
+const svg = (inner) => `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+const VG_ICONS = [
+  svg('<rect x="6" y="2" width="12" height="20" rx="2"/><rect x="9" y="7" width="6" height="6" rx="1"/><path d="M11 18h2"/>'),
+  svg('<rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="0.6" fill="currentColor"/><circle cx="18" cy="13.5" r="0.6" fill="currentColor"/>'),
+  svg('<circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z" fill="currentColor"/>'),
+];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const d = (key) => {
@@ -101,6 +108,25 @@ ${[1, 2, 3, 4, 5, 6].map((i) => `      <div class="card" data-cms-show="services
         ${text("p", `services.${i}.text`)}
       </div>`).join("\n")}
     </div>
+    </div>
+  </section>
+
+  <section class="section dark" data-cms-show="videogames.title">
+    <div class="container">
+${ribbon("h2", "videogames.title")}
+${lead("videogames.subtitle")}
+    <div class="grid grid-3">
+${[1, 2, 3].map((i) => `      <article class="vg-card" data-cms-show="videogames.${i}.title">
+        <div class="vg-icon" aria-hidden="true">${VG_ICONS[i - 1]}</div>
+        <span class="chip" data-cms="videogames.${i}.tag" data-cms-show="videogames.${i}.tag"${reveal(`videogames.${i}.tag`)}>${t(`videogames.${i}.tag`)}</span>
+        ${text("h3", `videogames.${i}.title`)}
+        ${text("p", `videogames.${i}.text`)}
+        <ul class="vg-points">
+${[1, 2, 3].map((p) => `          <li data-cms-show="videogames.${i}.point.${p}"${reveal(`videogames.${i}.point.${p}`)} data-cms="videogames.${i}.point.${p}">${t(`videogames.${i}.point.${p}`)}</li>`).join("\n")}
+        </ul>
+      </article>`).join("\n")}
+    </div>
+    <div class="center-cta">${link("btn", "videogames.button")}</div>
     </div>
   </section>
 
@@ -211,7 +237,7 @@ ${ribbon("h2", "about.name.title")}
 
   <div class="container">
     <div class="float-card">
-${[1, 2, 3].map((i) => `      <div class="topic" data-cms-show="contact.topic.${i}.title">
+${[1, 2, 3, 4].map((i) => `      <div class="topic" data-cms-show="contact.topic.${i}.title">
         ${text("h2", `contact.topic.${i}.title`)}
         ${text("p", `contact.topic.${i}.text`)}
       </div>`).join("\n")}
