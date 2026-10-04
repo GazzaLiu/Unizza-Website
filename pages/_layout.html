@@ -8,18 +8,17 @@
 <link rel="icon" href="/assets/cdn.prod.website-files.com/img/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Montserrat:wght@400;500;600&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="/assets/site.css" rel="stylesheet">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main" data-cms="ui.skip">{{t:ui.skip}}</a>
 <header class="site-header">
   <div class="container">
     <a class="brand" href="/">
       <img data-cms-src="site.logo" data-cms-reveal="site.logo" alt="" hidden>
       <span class="brand-name" data-cms="site.brand">Unizza Games</span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span></button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="/"{{current:home}} data-cms="nav.home">Home</a></li>
@@ -28,6 +27,10 @@
         <li><a href="/contact"{{current:contact}} data-cms="nav.contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <a class="lang-switch" href="/zh" hreflang="zh-Hant" lang="zh-Hant" data-lang-switch data-cms="ui.lang.switch">{{t:ui.lang.switch}}</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{{a:ui.menu}}" data-cms-attr="aria-label:ui.menu"><span></span></button>
+    </div>
   </div>
 </header>
 <main id="main">

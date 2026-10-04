@@ -4,7 +4,7 @@
 
 ## 試算表格式
 
-第一列是標題列，必須有 `key` 與 `value` 兩欄；`note` 欄只是說明，網站不會讀取。
+第一列是標題列，必須有 `key` 與 `value` 兩欄，可另加 `value_zh`（中文，見下方「中英文」）；`note` 欄只是說明，網站不會讀取。
 
 | key | value | note |
 |---|---|---|
@@ -25,6 +25,17 @@
   - `about.team.1` 到 `about.team.4`（填 `about.team.N.name`；第 1 位有填才顯示整個團隊區塊）
   - `about.cta.3.label`（About 頁第三個按鈕）、`site.logo`（Logo 圖）、`contact.hero.image`（聯絡頁橫幅照片）
 - 以 `#` 開頭的 key 會被忽略，可以當作註解列。
+
+## 中英文
+
+網站有英文（`/`、`/portfolios`…）與繁體中文（`/zh`、`/zh/portfolios`…）兩個版本，右上角的「中文／EN」按鈕會切到另一個語言的同一頁。
+
+- 在試算表加一欄標題為 **`value_zh`** 的欄位放中文；`value` 是英文。
+- 中文頁每個 key 的取用順序：`value_zh` → 網站內建的中文翻譯（`pages/defaults.zh.json`）→ 英文 `value`。
+- **改了英文、也要改中文**：如果只改 `value`、沒填 `value_zh`，中文頁會繼續顯示內建翻譯（不是你新改的內容）。
+- 英文 `value` 清空（隱藏）時，中文頁也一起隱藏，除非 `value_zh` 有填。
+- 連結、圖片、分組編號這類不需翻譯的欄位，`value_zh` 留空即可。
+- `ui.*` 是固定介面文字（表單錯誤訊息、404 頁等），一樣可以兩種語言分別修改。
 
 ## 頁面與 key 前綴
 

@@ -1,5 +1,5 @@
 // Handles /api/* and HTML pages; /assets/* is served straight from static assets (see wrangler.jsonc).
-import { applyContent, loadContent } from "./cms.js";
+import { applyContent, loadContent, resolveContent } from "./cms.js";
 
 const LIMITS = { name: 256, email: 256, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -101,17 +101,40 @@ async function handleContact(request, env) {
   return json(200, { ok: true });
 }
 
-// Serves a page from static assets and fills in Google Sheets content.
+// /zh and /zh/... serve the same files as their English paths, in Chinese.
+function splitLang(pathname) {
+  if (pathname === "/zh" || pathname.startsWith("/zh/")) return { lang: "zh", path: pathname.slice(3) || "/" };
+  return { lang: "en", path: pathname };
+}
+
+// Serves a page from static assets and fills in Google Sheets content for its language.
 async function servePage(request, env, ctx) {
-  const response = await env.ASSETS.fetch(request);
+  const url = new URL(request.url);
+  const { lang, path } = splitLang(url.pathname);
+  let assetRequest = request;
+  if (lang === "zh") {
+    const assetUrl = new URL(url);
+    assetUrl.pathname = path;
+    assetRequest = new Request(assetUrl, request);
+  }
+
+  const response = await env.ASSETS.fetch(assetRequest);
+  const location = response.headers.get("Location");
+  if (lang === "zh" && location && location.startsWith("/") && !location.startsWith("//")) {
+    // e.g. /zh/contact.html -> /contact must stay in Chinese.
+    const headers = new Headers(response.headers);
+    headers.set("Location", location === "/" ? "/zh" : `/zh${location}`);
+    return new Response(response.body, { status: response.status, headers });
+  }
   const type = response.headers.get("Content-Type") || "";
   if (!type.startsWith("text/html")) return response; // redirects, non-HTML files
-  const content = await loadContent(env, ctx);
-  if (!content) return response;
-  const page = applyContent(response, content);
+
+  const sheet = await loadContent(env, ctx);
+  const page = applyContent(response, resolveContent(sheet, lang), { lang, path, origin: url.origin });
   const headers = new Headers(page.headers);
   headers.delete("ETag"); // body differs from the stored asset
   headers.set("Cache-Control", "no-cache");
+  headers.set("Content-Language", lang === "zh" ? "zh-Hant-TW" : "en");
   return new Response(page.body, { status: page.status, headers });
 }
 

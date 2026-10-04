@@ -9,9 +9,14 @@
 //   data-cms-placeholder="key"  placeholder attribute
 //   data-cms-alt="key"          image alt text (empty = decorative)
 //   data-cms-group="key"        data-group attribute (portfolio grouping, applied by portfolios.js)
+//   data-cms-attr="a:key;b:key" other text attributes (aria-label, data-*); never on*/href/src/style
+//   data-lang-switch            link to the same page in the other language
+// Pages under /zh get Chinese values (see resolveContent), lang="zh-Hant-TW" and /zh-prefixed links.
 //   data-cms-show="key"         element is removed when the key exists in the sheet with an empty value
 //   data-cms-reveal="key"       element starts hidden; the hidden attribute is dropped once the key has a value
 // Keys missing from the sheet leave the HTML default in place.
+
+import ZH_DEFAULTS from "../pages/defaults.zh.json";
 
 const FRESH_MS = 5 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 3000;
@@ -61,20 +66,45 @@ export function parseCsv(text) {
   return rows;
 }
 
-// Sheet layout: header row with "key" and "value" columns; any other columns are ignored.
+// Sheet layout: header row with "key" and "value" columns, plus an optional "value_zh" (or "zh")
+// column for Traditional Chinese; any other columns are ignored.
+// Returns Map<key, { value, zh }>.
 export function toContent(csv) {
   const rows = parseCsv(csv.replace(/^﻿/, ""));
   const header = (rows.shift() || []).map((h) => h.trim().toLowerCase());
   const keyCol = header.indexOf("key");
   const valueCol = header.indexOf("value");
+  const zhCol = header.indexOf("value_zh") >= 0 ? header.indexOf("value_zh") : header.indexOf("zh");
   if (keyCol < 0 || valueCol < 0) throw new Error("sheet needs 'key' and 'value' header columns");
+  const clean = (v) => (v || "").replace(/\r\n?/g, "\n").trim();
   const content = new Map();
   for (const row of rows) {
     const key = (row[keyCol] || "").trim();
     if (!key || key.startsWith("#")) continue;
-    content.set(key, (row[valueCol] || "").replace(/\r\n?/g, "\n").trim());
+    content.set(key, { value: clean(row[valueCol]), zh: zhCol >= 0 ? clean(row[zhCol]) : "" });
   }
   return content;
+}
+
+// The values one language should show, as Map<key, string>. Keys left out keep the HTML default.
+// English: the sheet's "value" column. Chinese, per key: value_zh, else empty when the English value
+// was cleared (hidden stays hidden), else the built-in translation, else the English value
+// (links, images and names need no translation).
+export function resolveContent(sheet, lang) {
+  const out = new Map();
+  if (lang !== "zh") {
+    if (sheet) for (const [key, row] of sheet) out.set(key, row.value);
+    return out;
+  }
+  for (const [key, value] of Object.entries(ZH_DEFAULTS)) out.set(key, value);
+  if (sheet) {
+    for (const [key, row] of sheet) {
+      if (row.zh !== "") out.set(key, row.zh);
+      else if (row.value === "") out.set(key, "");
+      else if (!(key in ZH_DEFAULTS)) out.set(key, row.value);
+    }
+  }
+  return out;
 }
 
 async function fetchSheet(url) {
@@ -163,8 +193,31 @@ function attrHandler(content, marker, attr, sanitize = (v) => v) {
   };
 }
 
-export function applyContent(response, content) {
+// Paths that exist in both languages: everything except files and the API.
+const isPagePath = (href) => /^\/(?!\/)/.test(href) && !/^\/(assets|api)(\/|$)/.test(href);
+const toZhPath = (path) => (path === "/" ? "/zh" : `/zh${path}`);
+
+// page: { lang: "en" | "zh", path: "/about" (path without the /zh prefix), origin: "https://…" }
+export function applyContent(response, content, page = { lang: "en", path: "/", origin: "" }) {
+  const zh = page.lang === "zh";
+  const enUrl = `${page.origin}${page.path}`;
+  const zhUrl = `${page.origin}${toZhPath(page.path)}`;
   return new HTMLRewriter()
+    .on("html", {
+      element(el) {
+        el.setAttribute("lang", zh ? "zh-Hant-TW" : "en");
+      },
+    })
+    .on("head", {
+      element(el) {
+        el.append(
+          `<link rel="alternate" hreflang="en" href="${escapeHtml(enUrl)}">` +
+            `<link rel="alternate" hreflang="zh-Hant" href="${escapeHtml(zhUrl)}">` +
+            `<link rel="alternate" hreflang="x-default" href="${escapeHtml(enUrl)}">`,
+          { html: true },
+        );
+      },
+    })
     .on("[data-cms-show]", {
       element(el) {
         const key = el.getAttribute("data-cms-show");
@@ -195,5 +248,29 @@ export function applyContent(response, content) {
     .on("[data-cms-placeholder]", attrHandler(content, "data-cms-placeholder", "placeholder"))
     .on("[data-cms-alt]", attrHandler(content, "data-cms-alt", "alt"))
     .on("[data-cms-group]", attrHandler(content, "data-cms-group", "data-group", (v) => v.trim()))
+    .on("[data-cms-attr]", {
+      // data-cms-attr="aria-label:ui.menu;data-wait:ui.form.wait" sets arbitrary text attributes.
+      element(el) {
+        for (const pair of el.getAttribute("data-cms-attr").split(";")) {
+          const [attr, key] = pair.split(":").map((s) => s.trim());
+          if (attr && key && content.has(key) && !/^(on|href$|src$|style$)/i.test(attr)) el.setAttribute(attr, content.get(key));
+        }
+      },
+    })
+    .on("[data-lang-switch]", {
+      element(el) {
+        el.setAttribute("href", zh ? page.path : toZhPath(page.path));
+        el.setAttribute("hreflang", zh ? "en" : "zh-Hant");
+        el.setAttribute("lang", zh ? "en" : "zh-Hant");
+      },
+    })
+    .on("a[href]", {
+      // Registered last so it sees hrefs already replaced from the sheet.
+      element(el) {
+        if (!zh || el.hasAttribute("data-lang-switch")) return;
+        const href = el.getAttribute("href");
+        if (isPagePath(href) && !/^\/zh(\/|$)/.test(href)) el.setAttribute("href", toZhPath(href));
+      },
+    })
     .transform(response);
 }
