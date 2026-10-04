@@ -279,5 +279,17 @@
  "portfolio.12.image": "/assets/portfolio/sample-12.svg",
  "portfolio.12.alt": "Sample cover art for Starfall Couriers",
  "portfolio.12.link.label": "",
- "portfolio.12.link": "#"
+ "portfolio.12.link": "#",
+ "ui.skip": "Skip to content",
+ "ui.menu": "Menu",
+ "ui.lang.switch": "中文",
+ "ui.form.field_error": "Please check this field.",
+ "ui.form.wait": "Please wait...",
+ "ui.form.fail": "Something went wrong. Please email us directly at",
+ "ui.form.verify_wait": "Please wait for the verification to finish.",
+ "ui.form.check": "Please check the form and try again.",
+ "ui.form.verify_failed": "Verification failed. Please try again.",
+ "ui.404.title": "Page not found",
+ "ui.404.text": "The page you are looking for doesn’t exist.",
+ "ui.404.button": "Back to home"
 }

@@ -18,6 +18,11 @@
   var token = null;
   var widgetId = null;
 
+  // Messages come from data-msg-* attributes on the form, so each language page supplies its own.
+  function msg(name, fallback) {
+    return form.dataset["msg" + name.charAt(0).toUpperCase() + name.slice(1)] || fallback;
+  }
+
   function setStatus(text) {
     status.textContent = text || "";
     status.hidden = !text;
@@ -50,6 +55,7 @@
   window.unizzaTurnstileReady = function () {
     widgetId = window.turnstile.render("#turnstile", {
       sitekey: SITEKEY,
+      language: /^zh/i.test(document.documentElement.lang) ? "zh-tw" : "en",
       callback: onToken,
       "expired-callback": dropToken,
       "error-callback": function () {
@@ -87,7 +93,7 @@
         return;
       }
       if (!token) {
-        setStatus("Please wait for the verification to finish.");
+        setStatus(msg("verifyWait", "Please wait for the verification to finish."));
         return;
       }
 
@@ -114,9 +120,9 @@
           return res.json().catch(function () { return {}; }).then(function (body) {
             if (res.status === 400) {
               if (body.field) showFieldError(body.field);
-              else setStatus("Please check the form and try again.");
+              else setStatus(msg("check", "Please check the form and try again."));
             } else if (res.status === 403) {
-              setStatus("Verification failed. Please try again.");
+              setStatus(msg("verifyFailed", "Verification failed. Please try again."));
             } else {
               showFail();
             }

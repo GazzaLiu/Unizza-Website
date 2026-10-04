@@ -283,30 +283,30 @@ ${[1, 2, 3, 4].map((i) => `      <div class="topic" data-cms-show="contact.topic
       ${text("p", "contact.form.intro", ' class="contact-info"')}
       ${text("p", "contact.info", ' class="contact-info"')}
       <div class="contact-form-wrapper">
-        <form id="email-form" method="post" action="/api/contact" novalidate>
+        <form id="email-form" method="post" action="/api/contact" novalidate data-msg-verify-wait="${a("ui.form.verify_wait")}" data-msg-check="${a("ui.form.check")}" data-msg-verify-failed="${a("ui.form.verify_failed")}" data-cms-attr="data-msg-verify-wait:ui.form.verify_wait;data-msg-check:ui.form.check;data-msg-verify-failed:ui.form.verify_failed">
           <div class="form-grid">
             <div>
               <label class="form-label" for="name" data-cms="contact.form.name.label">${t("contact.form.name.label")}</label>
               <input class="form-field" id="name" name="name" type="text" maxlength="256" required placeholder="${a("contact.form.name")}" data-cms-placeholder="contact.form.name" autocomplete="name">
-              <p class="field-error" data-for="name" hidden>Please check this field.</p>
+              <p class="field-error" data-for="name" hidden data-cms="ui.form.field_error">${t("ui.form.field_error")}</p>
             </div>
             <div>
               <label class="form-label" for="email" data-cms="contact.form.email.label">${t("contact.form.email.label")}</label>
               <input class="form-field" id="email" name="email" type="email" maxlength="256" required placeholder="${a("contact.form.email")}" data-cms-placeholder="contact.form.email" autocomplete="email">
-              <p class="field-error" data-for="email" hidden>Please check this field.</p>
+              <p class="field-error" data-for="email" hidden data-cms="ui.form.field_error">${t("ui.form.field_error")}</p>
             </div>
             <div class="full">
               <label class="form-label" for="message" data-cms="contact.form.message.label">${t("contact.form.message.label")}</label>
               <textarea class="form-field" id="message" name="message" maxlength="5000" required placeholder="${a("contact.form.message")}" data-cms-placeholder="contact.form.message"></textarea>
-              <p class="field-error" data-for="message" hidden>Please check this field.</p>
+              <p class="field-error" data-for="message" hidden data-cms="ui.form.field_error">${t("ui.form.field_error")}</p>
             </div>
           </div>
           <div id="turnstile"></div>
           <p class="form-status" id="form-status" role="status" hidden></p>
-          <input class="btn btn-block" type="submit" value="${a("contact.form.button")}" data-cms-value="contact.form.button" data-wait="Please wait..." disabled>
+          <input class="btn btn-block" type="submit" value="${a("contact.form.button")}" data-cms-value="contact.form.button" data-wait="${a("ui.form.wait")}" data-cms-attr="data-wait:ui.form.wait" disabled>
         </form>
         <div class="w-form-done" role="status">${text("p", "contact.form.success")}</div>
-        <div class="w-form-fail" role="alert"><p>Something went wrong. Please email us directly at <a href="mailto:info@unizzagames.com">info@unizzagames.com</a>.</p></div>
+        <div class="w-form-fail" role="alert"><p><span data-cms="ui.form.fail">${t("ui.form.fail")}</span> <a href="mailto:info@unizzagames.com">info@unizzagames.com</a>.</p></div>
       </div>
     </div>
   </div>`,
@@ -316,12 +316,12 @@ ${[1, 2, 3, 4].map((i) => `      <div class="topic" data-cms-show="contact.topic
     metaKey: "notfound", current: "", title: "Page not found | Unizza Games", description: "This page does not exist.",
     body: `  <section class="page-hero compact">
     <div class="container">
-      <h1>Page not found</h1>
-      <p>The page you are looking for doesn't exist.</p>
+      ${text("h1", "ui.404.title")}
+      ${text("p", "ui.404.text")}
     </div>
   </section>
   <section class="section">
-    <div class="container center-cta"><a class="btn" href="/">Back to home</a></div>
+    <div class="container center-cta"><a class="btn" href="/" data-cms="ui.404.button">${t("ui.404.button")}</a></div>
   </section>`,
   },
 };
@@ -336,6 +336,7 @@ for (const [name, page] of Object.entries(pages)) {
     .replace("{{socialLinks}}", socialLinks)
     .replace("{{scripts}}", page.scripts ?? "")
     .replace(/\{\{t:([\w.]+)\}\}/g, (_m, key) => t(key))
+    .replace(/\{\{a:([\w.]+)\}\}/g, (_m, key) => a(key))
     .replaceAll("{{title}}", esc(title))
     .replaceAll("{{description}}", esc(description));
   html = html.replaceAll("{{metaKey}}", page.metaKey);
